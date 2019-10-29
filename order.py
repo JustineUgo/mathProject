@@ -43,5 +43,5 @@ group_identity=int(input("What is the group identity? \n"))
 
 obj = Order(user_input, element, group_base, group_identity)
 print(obj.order_of_group())
-print(obj.order_of_element()
+print(obj.order_of_element())
 
