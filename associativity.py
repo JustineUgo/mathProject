@@ -16,6 +16,10 @@ def is_associative(first, second, third):
         right = a*(b*c)
         
         if left == right:
+            left_operation = "({}*{})*{} =".format(a,b,c)
+            right_operation = "{}*({}*{}) =".format(a,b,c)
+            print("{0}{1}\n{2}{3}".format(left_operation, left, right_operation, right))
+            
             return "It is closed under associativity"
         return "It is not closed under associativity"
     
@@ -25,12 +29,16 @@ def is_associative(first, second, third):
 
         
         if left == right:
+            left_operation = "({}+{})+{} =".format(a,b,c)
+            right_operation = "{}+({}+{}) =".format(a,b,c)
+            print("{0}{1}\n{2}{3}".format(left_operation, left, right_operation, right))
+            
             return "It is closed under associativity"
         return "It is not closed under associativity"
         
     
-a = input("Input the first number: ")
-b = input("Input the second number: ")
-c = input("Input the third number: ")
+a = input("Input the first number, a: ")
+b = input("Input the second number, b: ")
+c = input("Input the third number, c: ")
     
 print(is_associative(a, b, c))

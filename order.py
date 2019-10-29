@@ -5,39 +5,43 @@
 #Order of an element
 #   The order of an element g, is the smallest positive number n, such that g^n = e, where e is the 'group identity' 
 
-
-def order_of_group():
-    user_input = input("Write the elements of the group, seperated by commas \n")
+class Order:
     
-    group = user_input.split(',')
-    
-    #remove spaces(elements that are not numbers)
-    num = group.count('')
-    for i in range(num):
-        group.remove('')
-    
-    return len(group)
-
-
-def order_of_element():
-    user_input = input("Enter the elements of the group \n")
-    group = user_input.split(',')
-    
-    element = int(input("What element do you want the order of? \n"))
-    group_base = int(input("What is the base of the group? \n"))
-    group_identity=int(input("What is the group identity? \n"))
-    
-    #to interate through for powers
-    for i in range(1, 100):
-        calculation = element**i
-        if calculation > group_base and (int(calculation%group_base)==group_identity):
-            return i
+    def __init__(self, group, element, base, identity):
+        self.group = group
+        self.element = element
+        self.group_base = base
+        self.group_identity = identity
         
-        else:
-            if int(calculation%group_base)==group_identity:
-                return i
+        
+    def order_of_group(self):
+        
+        return "\nThe order of the group, is the number of elements in the group, which is: {}".format(len(self.group))
+
+    def order_of_element(self):
+        
+        #to interate through for powers
+        for i in range(1, 100):
+            calculation = self.element**i
+            
+            if calculation < self.group_base:
+                print("{}**{} = {}".format(self.element, i, calculation))
+                if calculation == self.group_identity:
+                    return "\nThe order of {}, is:".format(i)
+            
+            else:
+                calculation = calculation%self.group_base
+                print("{}**{} = {}".format(self.element, i, calculation))
+                if calculation == self.group_identity:
+                    return "\nThe order of {}, is:".format(i)
             
 
+user_input = input("Write the elements of the group, seperated by commas \n").split(",")
+element = int(input("What element do you want the order of? \n"))
+group_base = int(input("What is the base of the group? \n"))
+group_identity=int(input("What is the group identity? \n"))
 
-#print(order_of_group())
-#print("\nThe order is ",order_of_element())
+obj = Order(user_input, element, group_base, group_identity)
+print(obj.order_of_group())
+print(obj.order_of_element()
+
