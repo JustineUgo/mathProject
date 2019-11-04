@@ -21,19 +21,19 @@ class Order:
     def order_of_element(self):
         
         #to interate through for powers
-        for i in range(1, 100):
-            calculation = self.element**i
+        for power in range(1, 100):
+            calculation = self.element**power
             
             if calculation < self.group_base:
-                print("{}**{} = {}".format(self.element, i, calculation))
+                print("{}**{} = {}".format(self.element, power, calculation))
                 if calculation == self.group_identity:
-                    return "\nThe order of {}, is:".format(i)
+                    return "\nThe order of {}, is:".format(power)
             
             else:
                 calculation = calculation%self.group_base
-                print("{}**{} = {}".format(self.element, i, calculation))
+                print("{}**{} = {}".format(self.element, power, calculation))
                 if calculation == self.group_identity:
-                    return "\nThe order of {}, is:".format(i)
+                    return "\nThe order of {}, is:".format(power)
             
 
 user_input = input("Write the elements of the group, seperated by commas \n").split(",")
