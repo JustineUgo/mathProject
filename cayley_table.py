@@ -9,15 +9,16 @@ def cayley():
     #Initialize dictionary to map products and elements, list of elements
     dictionary_of_products={}
     m = int(input("What is M? \n")) 
-    user_input = input("Write out the elements of the group: \n")
+    user_input = input("Write out the elements of the group, seperated with commas: \n")
     list_of_elements = set(user_input.split(","))
+    list_of_elements = list(list_of_elements)
+    list_of_elements.sort() #ascend the list, since input was set
     
     #dictionary headers init
-    dictionary_of_products[0]=list(list_of_elements)
-    dictionary_of_products[0].sort()
+    dictionary_of_products[0]=list_of_elements
     
     
-    #initialize the dictionary to map list of products
+    #maps lists of products to "element"
     for element in list_of_elements:
         list_of_product=[]
         
@@ -33,13 +34,15 @@ def cayley():
         
     return dictionary_of_products
 
+#constructs the table
 cayley = cayley()
+print(cayley)
 keys = cayley.keys()
 count = 0
 for element in keys:
-    if count ==1:
+    if count ==1: # prints out the horizontal line after first row
         print((len(keys)*2+1)*"-")
-    print(str(element)+'|', *cayley[element])
+    print(str(element)+'|', *cayley[element]) #empties list with spaces
     count +=1
 
 

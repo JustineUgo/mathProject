@@ -8,7 +8,7 @@ def is_associative(first, second, third):
     a = int(first)
     b = int(second)
     c = int(third)
-    operator = input("What operator are you testing for? \n")
+    operator = input("What operator are you testing for, * OR + ? \n")
     
     
     if operator == '*':

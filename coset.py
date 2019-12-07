@@ -4,7 +4,7 @@
 def coset():
     
     base_of_universal = int(input("What is the base of the universal set? \n"))
-    writing_of_subgroup = input("Specify, the subGroup\n")
+    writing_of_subgroup = input("Write of the subgroup seperated by commas in this format\n4={0,4,8}\n")
     
     #Remove elements of subgroup into subgroup variable
     beginning_of_elements = writing_of_subgroup.index("{") + 1
@@ -17,8 +17,8 @@ def coset():
         coset=[]
         
         #append sum of member and subgroup element 
-        for element_of_subgroup in subgroup:
-            coset.append(int(element_of_subgroup) + member)
+        for subgroup_element in subgroup:
+            coset.append(int(subgroup_element) + member)
             
         #verify if its a coset
         if any([element >= base_of_universal for element in coset]):
